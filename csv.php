@@ -5,37 +5,32 @@
  * for csv file
  * 
  * ****************/
-
-
-function createCSV( $cols, $limit) {
-    if(!empty ($cols) ) {
-        $countCols  = count($cols);
-        $csvfile    = fopen('test.csv', 'w');
-
-        $values     = array (
-                            array ('1','2','3'),
-                            array ('4','5', '6'),
-                            array ('7','8','9'),
-                            array ('10','11','12'),
-                            array ('13','14','15')
-                        );
-        $counter    = 0;
-
-        // output each row of the data
-        fputcsv($csvfile, $cols);
-        foreach ($values as $row) {   
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+class csv {
+    public function createCSV( $cols, $limit) {
+        if(!empty ($cols) ) {
             
-            fputcsv($csvfile, $row);
-            $counter++;
-            if($limit == $counter) break;
-        }
-        return  "A file has been generated with input data";
-    } else {
+            $countCols  = count($cols);
+            $csvfile    = fopen('test.csv', 'w');
+            
+            fputcsv($csvfile, $cols);
+             for($i=1; $i<$limit; $i++){
+                $row = array ($i, mt_rand(10,100), mt_rand(1,100));
+                fputcsv($csvfile, $row);
+            }
+            return  "A file has been generated with input data";
+        } else {
             return "Invalid Argument value for column";
+        }
+
     }
-	
 }
 
-$colnames	= array('Heading1', 'Heading2', 'Heading3');
-echo $data 		= createCSV($colnames, 3);
+
+$colnames   = array('Heading1', 'Heading2', 'Heading3');
+$data       = new csv ();
+$return     = $data->createCSV($colnames, 10);
+echo $return;
 
