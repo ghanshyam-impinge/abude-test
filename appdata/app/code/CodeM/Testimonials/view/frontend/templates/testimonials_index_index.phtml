@@ -1,0 +1,31 @@
+<form class="" action="<?php echo $block->getBaseUrl().'testimonials/index/save'; ?>" id="codem-ctestimonials-form" method="post" data-mage-init='{"validation": {}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span>Testimonials</span></legend><br>
+        <div class="field note no-label"></div>
+        <div class="field title">
+            <label class="label" for="nickname"><span>Nickname</span></label>
+            <div class="control">
+                <input name="nickname" id="nickname" title="Nickname" value="" class="input-text" type="text" data-validate="{required:true}">
+            </div>
+        </div>
+<!--        <div class="field author">
+            <label class="label" for="author"><span>Author</span></label>
+            <div class="control">
+                <input name="author" id="author" title="Author" value="" class="input-text" type="text" data-validate="{required:true}">
+            </div>
+        </div>-->
+        <div class="field content">
+            <label class="label" for="testimonials"><span>Testimonial</span></label>
+            <div class="control">
+                <textarea name="testimonials" id="testimonials" title="Testimonials" class="input-text" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="Submit" class="action submit primary">
+                <span>Submit</span>
+            </button>
+        </div>
+    </div>
+</form>
