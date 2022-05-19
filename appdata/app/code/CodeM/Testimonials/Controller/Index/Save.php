@@ -32,7 +32,7 @@ class Save extends \Magento\Framework\App\Action\Action
         //echo "<pre>"; print_r($data); die('here');
         $testimonials->setData($data);
         if($testimonials->save()){
-            $this->messageManager->addSuccessMessage(__('You saved the data.'));
+            $this->messageManager->addSuccessMessage(__('Your testimonial has been submitted successfully.'));
         }else{
             $this->messageManager->addErrorMessage(__('Data was not saved.'));
         }
